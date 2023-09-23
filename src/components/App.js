@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 // 👉 STEP 2 - React Router imports (Routes, Route and Link)
 
 // Components used for the different routes
@@ -26,10 +27,20 @@ export default function App(props) {
       <nav>
         <h1 className='store-header'>Emily&apos;s Trinkets</h1>
         <div className='nav-links'>
+         
+          <Link to="/">Home</Link>
+          <Link to="items-list">Shop</Link>
           {/* 👉 STEP 3 - Make Links to navigate us Home (`/`) and Shop (`items-list`) */}
         </div>
+
       </nav>
 
+
+         <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="items-list" element={<ItemsList items={stock} />}></Route>
+            <Route path="items-list/:itemID/*" element={<Item items={stock}/>}></Route>
+          </Routes>
       {/* 👉 STEP 4 - Build Routes, and a Route for each of the components imported at the top */}
       {/* Note that the components will need some props in order to work */}
       {/* Note that the path that renders Item has a URL parameter */}

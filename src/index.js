@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 
 // Importing the top-level component
@@ -12,5 +13,7 @@ import './styles.css'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
 );
